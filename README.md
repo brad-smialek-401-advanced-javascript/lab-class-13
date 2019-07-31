@@ -35,6 +35,7 @@
 * How do you run tests? npm test in the terminal
 
 #### UML
-[uml](./assets/jwtoken.png)
+![uml](./assets/jwtoken.png)
+
 ##Source
 * [Source](https://medium.com/@siddharthac6/json-web-token-jwt-the-right-way-of-implementing-with-node-js-65b8915d550e)
