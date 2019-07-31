@@ -7,8 +7,7 @@
 [![Build Status]()
 
 ### Links and Resources
-* [submission PR]()
-* [travis]()
+* [travis]([![Build Status](https://www.travis-ci.com/brad-smialek-401-advanced-javascript/lab-class-13.svg?branch=master)](https://www.travis-ci.com/brad-smialek-401-advanced-javascript/lab-class-13))
 
 #### Documentation
 * [api docs](http://xyz.com) (API servers)
