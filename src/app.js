@@ -27,7 +27,7 @@ app.use(authRouter);
 app.use(notFound);
 app.use(errorHandler);
 
-let isRunning = false;
+let isRunning = false
 
 module.exports = {
   server: app,

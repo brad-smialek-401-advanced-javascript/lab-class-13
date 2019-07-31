@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+const useToken = new Set();
+
 const users = new mongoose.Schema({
   username: {type:String, required:true, unique:true},
   password: {type:String, required:true},
@@ -20,23 +22,36 @@ users.pre('save', function(next) {
     .catch(console.error);
 });
 
-users.statics.createFromOauth = function(email) {
+// users.statics.createFromOauth = function(email) {
 
-  if(! email) { return Promise.reject('Validation Error'); }
+//   if(! email) { return Promise.reject('Validation Error'); }
 
-  return this.findOne( {email} )
-    .then(user => {
-      if( !user ) { throw new Error('User Not Found'); }
-      console.log('Welcome Back', user.username);
-      return user;
-    })
-    .catch( error => {
-      console.log('Creating new user');
-      let username = email;
-      let password = 'none';
-      return this.create({username, password, email});
-    });
+//   return this.findOne( {email} )
+//     .then(user => {
+//       if( !user ) { throw new Error('User Not Found'); }
+//       console.log('Welcome Back', user.username);
+//       return user;
+//     })
+//     .catch( error => {
+//       console.log('Creating new user');
+//       let username = email;
+//       let password = 'none';
+//       return this.create({username, password, email});
+//     });
 
+// };
+
+users.statics.authenticateToken = function(token) {
+
+  if (useToken.has(token) ) {
+    return Promise.reject('Invalid Token');
+  }
+
+  useToken.add(token);
+
+  let parsedToken = jwt.verify(token, process.env.SECRET);
+  let query = {_id:parsedToken.id};
+  return this.findOne(query);
 };
 
 users.statics.authenticateBasic = function(auth) {
@@ -45,6 +60,7 @@ users.statics.authenticateBasic = function(auth) {
     .then( user => user && user.comparePassword(auth.password) )
     .catch(error => {throw error;});
 };
+
 
 users.methods.comparePassword = function(password) {
   return bcrypt.compare( password, this.password )
@@ -58,7 +74,7 @@ users.methods.generateToken = function() {
     role: this.role,
   };
   
-  return jwt.sign(token, process.env.SECRET);
+  return jwt.sign(token, process.env.SECRET, { expiresIn: '15m' });
 };
 
 module.exports = mongoose.model('users', users);
