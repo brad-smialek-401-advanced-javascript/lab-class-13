@@ -36,5 +36,5 @@
 #### UML
 ![uml](./assets/jwtoken.png)
 
-##Source
+##Img Source
 * [Source](https://medium.com/@siddharthac6/json-web-token-jwt-the-right-way-of-implementing-with-node-js-65b8915d550e)
