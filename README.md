@@ -7,9 +7,8 @@
 [![Build Status]()
 
 ### Links and Resources
-* [submission PR](https://github.com/brandyn-vay-401-advanced-javascript/lab-class-13/pull/8)
-* [travis](https://travis-ci.com/brandyn-vay-401-advanced-javascript/lab-class-13/builds/121183046)
-* [back-end](https://bv-auth-bearer-server.herokuapp.com/)
+* [submission PR]()
+* [travis]()
 
 #### Documentation
 * [api docs](http://xyz.com) (API servers)
@@ -36,4 +35,6 @@
 * How do you run tests? npm test in the terminal
 
 #### UML
-[one time jwt diagram](./assets/one-time-jwt-diagram.jpg)
+[uml](./assets/jwtoken.png)
+##Source
+* [Source](https://medium.com/@siddharthac6/json-web-token-jwt-the-right-way-of-implementing-with-node-js-65b8915d550e)

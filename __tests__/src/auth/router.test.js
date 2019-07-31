@@ -52,3 +52,11 @@ describe('Auth Router', () => {
   });
   
 });
+
+// Testing
+// Add test coverage to the auth tests to assert that:
+// given a good token user is able to “log in” and receive a new token
+// Tokens can optionally be expired
+// Expired tokens do not allow a user to login
+// Auth Keys can login a user as a token would
+// Auth Keys do not expire
