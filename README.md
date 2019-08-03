@@ -7,8 +7,10 @@
 [![Build Status]()
 
 ### Links and Resources
-* [submission PR]()
-* [travis]()
+
+* [travis]([![Build Status](https://www.travis-ci.com/brad-smialek-401-advanced-javascript/lab-class-13.svg?branch=master)](https://www.travis-ci.com/brad-smialek-401-advanced-javascript/lab-class-13))
+
+* [HEROKU](https://lab13-brad.herokuapp.com/)
 
 #### Documentation
 * [api docs](http://xyz.com) (API servers)
@@ -35,6 +37,7 @@
 * How do you run tests? npm test in the terminal
 
 #### UML
-[uml](./assets/jwtoken.png)
-##Source
+![uml](./assets/jwtoken.png)
+
+## IMG Source
 * [Source](https://medium.com/@siddharthac6/json-web-token-jwt-the-right-way-of-implementing-with-node-js-65b8915d550e)

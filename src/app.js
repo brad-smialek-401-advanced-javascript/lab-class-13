@@ -4,6 +4,7 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const play = require('./routes/play.js');
 
 // Esoteric Resources
 const errorHandler = require( './middleware/500.js');
@@ -16,6 +17,7 @@ const app = express();
 // App Level MW
 app.use(cors());
 app.use(morgan('dev'));
+app.use(play);
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
