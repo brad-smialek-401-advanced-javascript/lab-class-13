@@ -4,7 +4,6 @@
 
 ### Author: Brad Smialek
 
-[![Build Status]()
 
 ### Links and Resources
 
