@@ -26,12 +26,13 @@ describe('Auth Router', () => {
       
       let encodedToken;
       let id;
+      let loginToken;
       
       it('can create one', () => {
         return mockRequest.post('/signup')
           .send(users[userType])
           .then(results => {
-            var token = jwt.verify(results.text, process.env.SECRET);
+            var token = jwt.verify(results.text, process.env.SECRET); // ?results.headers.auth
             id = token.id;
             encodedToken = results.text;
             expect(token.id).toBeDefined();
@@ -47,6 +48,14 @@ describe('Auth Router', () => {
           });
       });
 
+      it('can signin with bearer', () => {
+        return mockRequest.post('/signin')
+          .set('authorization', 'bearer', + encodedToken)
+          .then(results => {
+            var token = jwt.verify(results.text, process.env.SECRET);
+            expect(token.id).toEqual(id);
+          });
+      });
     });
     
   });
